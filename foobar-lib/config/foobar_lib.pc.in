@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@
+libdir=@CMAKE_INSTALL_PREFIX@/lib
+includedir=@CMAKE_INSTALL_PREFIX@/include
+
+Name: @PROJECT_NAME@
+Version: @PROJECT_VERSION@
+Description: The foobar library.
+
+Libs: -L@CMAKE_INSTALL_PREFIX@/lib -lfoobar_lib
+Cflags: -I@CMAKE_INSTALL_PREFIX@/include/foobar_lib
