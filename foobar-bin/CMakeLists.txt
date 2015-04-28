@@ -25,7 +25,7 @@ target_include_directories(${TARGET} PUBLIC
 )
 
 configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/config/foobar.hpp.in"
-	"${CMAKE_CURRENT_BINARY_DIR}/foobar.hpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/config.hpp.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/config.hpp"
 	@ONLY
 )

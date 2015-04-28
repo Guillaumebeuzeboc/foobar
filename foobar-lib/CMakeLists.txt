@@ -31,12 +31,3 @@ install(TARGETS ${TARGET} DESTINATION lib/ EXPORT ${TARGET}-config)
 # Note: If we had multiple targets to export we would have to generate a config file.
 # However, since we only export a single target we can use directly the targets file.
 install(EXPORT ${TARGET}-config DESTINATION lib/cmake/${TARGET})
-
-configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/config/${TARGET}.pc.in"
-	"${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.pc"
-	@ONLY
-)
-
-# Install the generated metadata config file (for classic pkg-config usage).
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.pc DESTINATION lib/pkgconfig/)

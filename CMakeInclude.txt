@@ -1,20 +1,10 @@
-set(PROJECT_VERSION 1.0)
-
 # This file is meant to be included by the module CMakeLists.txt files.
-# If the inner PROJECT_NAME matches with the outer CMAKE_PROJECT_NAME, 
-# then must be an autonomous module build.
+# Here we can define common dependencies.
 
-if(${CMAKE_PROJECT_NAME} MATCHES ${PROJECT_NAME})
-	message("## Build Type: AUTONOMOUS")
-else()
-	message("## Build Type: MONOLITHIC")
-endif()
+set(PROJECT_VERSION 1.0)
 
 if(NOT CMAKE_BUILD_TYPE)
 	message("## CMAKE_BUILD_TYPE not specified, defaulting to release.")
 	set(CMAKE_BUILD_TYPE "Release")
 endif()
 
-# Here we can define common dependencies.
-
-include(FindPkgConfig)
