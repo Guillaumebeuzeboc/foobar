@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(FooBarLibrary)
 
+include(../CMakeInclude.txt)
+
 # Add all the source files to the SOURCES variable.
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
