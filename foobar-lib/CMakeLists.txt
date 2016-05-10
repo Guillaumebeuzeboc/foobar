@@ -2,17 +2,20 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(FooBarLibrary)
 
-include(../CMakeInclude.txt)
+include(../cmake/CMakeInclude.txt)
 
 # Add all the source files to the SOURCES variable.
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
+# Add all the header files to the HEADERS variable.
+file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
 
 # Set the compiled file to the TARGET variable.
 set(TARGET "foobar_lib")
 
 add_library(${TARGET} SHARED ${SOURCES})
 
-# Here we define the include paths that will be used by our clients.
+# Here we define the include paths that will be used by our clients:
 # BUILD_INTERFACE will be used when this library is consumed in source form.
 # INSTALL_INTERFACE will be used when this library is consumed in binary form.
 target_include_directories(${TARGET} PUBLIC
@@ -22,10 +25,10 @@ target_include_directories(${TARGET} PUBLIC
 )
 
 # Install the header files. The DESTINATION should match with the INSTALL_INTERFACE above.
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/ DESTINATION include/${TARGET} PATTERN "*.hpp")
+install(FILES ${HEADERS} DESTINATION include/${TARGET})
 
-# Install the compiled file and associate the metadata with an export name.
-install(TARGETS ${TARGET} DESTINATION lib/ EXPORT ${TARGET}-config)
+# Install the compiled file. Also generate export metadata.
+install(TARGETS ${TARGET} DESTINATION lib EXPORT ${TARGET}-config)
 
 # Install the generated metadata targets file.
 # Note: If we had multiple targets to export we would have to generate a config file.

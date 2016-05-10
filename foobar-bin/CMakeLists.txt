@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(FooBarApplication)
 
-include(../CMakeInclude.txt)
+include(../cmake/CMakeInclude.txt)
 
 if(NOT TARGET foobar_lib)
 	find_package(foobar_lib CONFIG REQUIRED)
@@ -16,7 +16,6 @@ file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 set(TARGET "foobar_bin")
 
 add_executable(${TARGET} ${SOURCES})
-
 target_link_libraries(${TARGET} foobar_lib)
 
 target_include_directories(${TARGET} PUBLIC
@@ -25,7 +24,7 @@ target_include_directories(${TARGET} PUBLIC
 )
 
 configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/src/config.hpp.in"
-	"${CMAKE_CURRENT_BINARY_DIR}/config.hpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/config/${TARGET}.hpp.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.hpp"
 	@ONLY
 )

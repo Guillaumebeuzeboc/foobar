@@ -1,4 +1,4 @@
-#include "config.hpp"
+#include "foobar_bin.hpp"
 #include "FooBar.hpp"
 #include <stdio.h>
 
