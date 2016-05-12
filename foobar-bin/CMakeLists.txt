@@ -22,9 +22,3 @@ target_include_directories(${TARGET} PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 )
-
-configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/config/${TARGET}.hpp.in"
-	"${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.hpp"
-	@ONLY
-)
