@@ -15,7 +15,7 @@ set(TARGET "foobar_lib")
 
 add_library(${TARGET} SHARED ${SOURCES})
 
-# Here we define the include paths that will be used by our clients:
+# Here we define the include paths that will be used by us and our clients:
 # BUILD_INTERFACE will be used when this library is consumed in source form.
 # INSTALL_INTERFACE will be used when this library is consumed in binary form.
 target_include_directories(${TARGET} PUBLIC
